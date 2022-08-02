@@ -1,10 +1,11 @@
 package com.example.demo
 
+import com.example.demo.doc.DocumentLinkGenerator
+import com.example.demo.doc.DocumentLinkGenerator.Companion.generateLinkCode
 import com.ninjasquad.springmockk.MockkBean
 import io.mockk.every
 import org.junit.jupiter.api.Test
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest
-import org.springframework.http.MediaType
 import org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.document
 import org.springframework.restdocs.mockmvc.RestDocumentationRequestBuilders.get
 import org.springframework.restdocs.payload.JsonFieldType
@@ -23,7 +24,7 @@ internal class WebMvcTest : SpringRestDocsSupport() {
     fun hello() {
         // when
         val perform = mockMvc.perform(
-            get("/api/hello").accept(MediaType.APPLICATION_JSON)
+            get("/api/hello")
         )
 
         // then
@@ -39,7 +40,7 @@ internal class WebMvcTest : SpringRestDocsSupport() {
 
         // when
         val perform = mockMvc.perform(
-            get("/api/users").accept(MediaType.APPLICATION_JSON)
+            get("/api/users")
         )
 
         // then
@@ -49,7 +50,9 @@ internal class WebMvcTest : SpringRestDocsSupport() {
                 document(
                     "user-get",
                     responseFields(
-                        fieldWithPath("name").type(JsonFieldType.STRING).description("이름")
+                        fieldWithPath("name").type(JsonFieldType.STRING).description(generateLinkCode(
+                            DocumentLinkGenerator.DocUrl.CommonCodes
+                        ))
                     )
                 )
             )

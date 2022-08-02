@@ -9,6 +9,7 @@ endif::[]
 :toc: left
 :toclevels: 3
 :sectlinks:
+:docinfo: shared-head
 
 [[introduction]]
 == 소개
@@ -19,6 +20,9 @@ API - develop by me
 == 공통 사항
 
 API - common
+
+include::{snippets}/common/custom-response-fields-commonCodes.adoc[]
+
 
 == Hello API
 
