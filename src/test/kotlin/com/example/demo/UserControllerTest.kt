@@ -1,21 +1,19 @@
 package com.example.demo
 
-import com.example.demo.doc.DocumentLinkGenerator
-import com.example.demo.doc.DocumentLinkGenerator.Companion.generateLinkCode
+import com.example.demo.descriptor.DemoDescriptor
+import com.example.demo.descriptor.DescriptorCollector
 import com.ninjasquad.springmockk.MockkBean
 import io.mockk.every
 import org.junit.jupiter.api.Test
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest
 import org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.document
 import org.springframework.restdocs.mockmvc.RestDocumentationRequestBuilders.get
-import org.springframework.restdocs.payload.JsonFieldType
-import org.springframework.restdocs.payload.PayloadDocumentation.fieldWithPath
 import org.springframework.restdocs.payload.PayloadDocumentation.responseFields
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers.content
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers.status
 
-@WebMvcTest
-internal class WebMvcTest : SpringRestDocsSupport() {
+@WebMvcTest(UserController::class)
+internal class UserControllerTest : SpringRestDocsSupport() {
 
     @MockkBean
     private lateinit var helloService: UserService
@@ -50,9 +48,7 @@ internal class WebMvcTest : SpringRestDocsSupport() {
                 document(
                     "user-get",
                     responseFields(
-                        fieldWithPath("name").type(JsonFieldType.STRING).description(generateLinkCode(
-                            DocumentLinkGenerator.DocUrl.CommonCodes
-                        ))
+                        DescriptorCollector.fieldDescriptor(DemoDescriptor.getNameList())
                     )
                 )
             )
