@@ -1,7 +1,7 @@
 package com.example.demo
 
-import com.example.demo.descriptor.DemoDescriptor
-import com.example.demo.descriptor.DescriptorCollector
+import com.example.demo.docs.descriptor.DemoDescriptor
+import com.example.demo.docs.descriptor.DescriptorCollector
 import com.ninjasquad.springmockk.MockkBean
 import io.mockk.every
 import org.junit.jupiter.api.Test

@@ -1,4 +1,4 @@
-package com.example.demo.descriptor
+package com.example.demo.docs.descriptor
 
 import com.example.demo.doc.DocumentLinkGenerator
 import com.example.demo.doc.DocumentLinkGenerator.Companion.generateLinkCode

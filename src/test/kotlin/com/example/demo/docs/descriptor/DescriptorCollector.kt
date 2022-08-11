@@ -1,4 +1,4 @@
-package com.example.demo.descriptor
+package com.example.demo.docs.descriptor
 
 import org.springframework.restdocs.headers.HeaderDescriptor
 import org.springframework.restdocs.headers.HeaderDocumentation
