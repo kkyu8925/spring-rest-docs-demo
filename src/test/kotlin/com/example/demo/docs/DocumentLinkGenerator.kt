@@ -1,4 +1,4 @@
-package com.example.demo.doc
+package com.example.demo.docs
 
 interface DocumentLinkGenerator {
 
@@ -11,13 +11,12 @@ interface DocumentLinkGenerator {
             return String.format("%s %s", docUrl.text, "코드명")
         }
     }
+}
 
-
-    enum class DocUrl(
-        val pageId: String,
-        val text: String
-    ) {
-        CommonCodes("commonCodes", "commonCodes"),
-    }
+enum class DocUrl(
+    val pageId: String,
+    val text: String
+) {
+    CommonCodesDocUrl("commonCodes", "공통코드"),
 }
 

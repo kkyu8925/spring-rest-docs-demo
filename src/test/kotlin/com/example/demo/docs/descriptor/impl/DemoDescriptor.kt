@@ -1,7 +1,8 @@
-package com.example.demo.docs.descriptor
+package com.example.demo.docs.descriptor.impl
 
-import com.example.demo.doc.DocumentLinkGenerator
-import com.example.demo.doc.DocumentLinkGenerator.Companion.generateLinkCode
+import com.example.demo.docs.DocUrl
+import com.example.demo.docs.DocumentLinkGenerator.Companion.generateLinkCode
+import com.example.demo.docs.descriptor.Descriptor
 import org.springframework.restdocs.payload.JsonFieldType
 
 enum class DemoDescriptor(
@@ -14,7 +15,7 @@ enum class DemoDescriptor(
     Name(
         "name",
         JsonFieldType.STRING,
-        generateLinkCode(DocumentLinkGenerator.DocUrl.CommonCodes),
+        generateLinkCode(DocUrl.CommonCodesDocUrl),
         false
     );
 
@@ -23,10 +24,9 @@ enum class DemoDescriptor(
     }
 
     companion object {
+
         fun getNameList(): List<DemoDescriptor> {
-            return listOf(
-                Name,
-            )
+            return listOf(Name)
         }
     }
 }
