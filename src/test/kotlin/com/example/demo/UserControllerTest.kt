@@ -1,7 +1,6 @@
 package com.example.demo
 
-import com.example.demo.docs.descriptor.DemoDescriptor
-import com.example.demo.docs.descriptor.DescriptorCollector
+import com.example.demo.docs.descriptor.impl.DemoDescriptorCollector.Companion.getFieldDescriptor
 import com.ninjasquad.springmockk.MockkBean
 import io.mockk.every
 import org.junit.jupiter.api.Test
@@ -47,9 +46,7 @@ internal class UserControllerTest : SpringRestDocsSupport() {
             .andDo(
                 document(
                     "user-get",
-                    responseFields(
-                        DescriptorCollector.fieldDescriptor(DemoDescriptor.getNameList())
-                    )
+                    responseFields(getFieldDescriptor())
                 )
             )
     }

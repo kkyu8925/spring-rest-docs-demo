@@ -1,9 +1,8 @@
-package com.example.demo.doc
+package com.example.demo.docs.common
 
+import com.example.demo.CommonCodes
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RestController
-import java.util.*
-import java.util.stream.Collectors
 
 @RestController
 class CommonDocumentationController {
@@ -11,12 +10,8 @@ class CommonDocumentationController {
     @GetMapping("/docs/common")
     fun findAll(): CommonResponse {
         return CommonResponse(
-            commonCodes = getDocs(CommonCodes.values()),
+            commonCodes = CommonCodes.values().associate { it.name to it.description }
         )
-    }
-
-    fun getDocs(commonEnum: Array<out CommonEnum>): Map<String, String> {
-        return Arrays.stream(commonEnum).collect(Collectors.toMap(CommonEnum::getName, CommonEnum::getDescription))
     }
 }
 
