@@ -28,11 +28,16 @@ include::{snippets}/common/custom-response-fields-commonCodes.adoc[]
 
 === 조회
 
+==== Request
+
 include::{snippets}/user-get/curl-request.adoc[]
 include::{snippets}/user-get/http-request.adoc[]
-include::{snippets}/user-get/http-response.adoc[]
 include::{snippets}/user-get/httpie-request.adoc[]
 include::{snippets}/user-get/request-body.adoc[]
+
+==== Response
+
+include::{snippets}/user-get/http-response.adoc[]
 include::{snippets}/user-get/response-body.adoc[]
 include::{snippets}/user-get/response-fields.adoc[]
 
