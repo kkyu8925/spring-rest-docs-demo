@@ -1,5 +1,9 @@
-package com.example.demo
+package com.example.demo.api
 
+import com.example.demo.SpringRestDocsSupport
+import com.example.demo.User
+import com.example.demo.UserController
+import com.example.demo.UserService
 import com.example.demo.docs.descriptor.impl.DemoDescriptorCollector.Companion.getFieldDescriptor
 import com.ninjasquad.springmockk.MockkBean
 import io.mockk.every
